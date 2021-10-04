@@ -1,7 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 
+import { useMoralis } from "react-moralis";
+
 function App() {
+
+  const { authenticate, isAuthenticated, user } = useMoralis();
+
+    const { logout, isAuthenticating } = useMoralis();
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +24,11 @@ function App() {
         >
           Learn React
         </a>
+        <button 
+          type='submit'
+          onClick={() => authenticate()}
+          >Login with MetaMask
+        </button>
       </header>
     </div>
   );
