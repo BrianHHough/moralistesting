@@ -9,6 +9,7 @@ function App() {
 
     const { logout, isAuthenticating } = useMoralis();
 
+  if (!isAuthenticated) {
   return (
     <div className="App">
       <header className="App-header">
@@ -32,6 +33,24 @@ function App() {
       </header>
     </div>
   );
+  }
+  return (
+    <div>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <h1>Welcome {user.get("username")}</h1>
+      <button 
+        type='submit'
+        onClick={() => logout()}
+        disabled={isAuthenticating}
+        >Sign Out</button>
+    </div>
+  );
+
 }
 
 export default App;
